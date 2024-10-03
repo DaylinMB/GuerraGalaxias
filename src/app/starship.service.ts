@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Starship } from './models/interfaces';
+import { Starship, StarshipDetails } from './models/interfaces';
+import { StarshipDetailsComponent } from './starship-details/starship-details.component';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,10 @@ export class StarshipService {
 
   constructor(private http: HttpClient) {}
   searchStarships(name: string): Observable<Starship[]> {
-    return this.http.get<{ results: Starship[] }>(`${this.starshipsUrl}?search=${name}`).pipe(
-        map(response => response.results)
-    );
-}
+    return this.http
+      .get<{ results: Starship[] }>(`${this.starshipsUrl}?search=${name}`)
+      .pipe(map((response) => response.results));
+  }
 
   getStarships(
     url: string = this.starshipsUrl
@@ -36,20 +37,24 @@ export class StarshipService {
       );
   }
 
-
-  private getImageUrl(url: string, type: string): string {
+  public getImageUrl(url: string, type: string): string {
     const id = this.extractIdFromUrl(url);
     return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
   }
 
   private starshipUrl: string = 'http https://swapi.dev/api/';
 
-  private extractIdFromUrl(url: string): string {
+  public extractIdFromUrl(url: string): string {
     const idMatch = url.match(/\/([0-9]+)\/$/);
     return idMatch ? idMatch[1] : '';
   }
 
-  getStarshipDetails(id: string): Observable<Starship> {
-    return this.http.get<Starship>(`${this.starshipsUrl}${id}/`);
+  getStarshipDetails(id: string): Observable<StarshipDetails> {
+    return this.http.get<StarshipDetails>(`${this.starshipsUrl}${id}/`);
   }
+
+  getStarshipById(id: string): Observable<StarshipDetails> {
+    return this.http.get<StarshipDetails>(`https://swapi.dev/api/starships/${id}/`);
+  }
+  
 }

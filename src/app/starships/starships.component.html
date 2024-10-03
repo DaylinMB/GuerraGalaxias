@@ -1,13 +1,21 @@
 <div>
   <div *ngIf="loading; else starshipList">
-    <p>Cargando naves...</p> <!-- Mensaje de carga -->
+    <p>Cargando naves...</p>
+    <!-- Mensaje de carga -->
   </div>
 
   <ng-template #starshipList>
     <div *ngIf="starships.length > 0; else noStarships">
       <ul>
-        <li *ngFor="let starship of starships">
-          <strong>{{ starship.name }}</strong> - {{ starship.model }}
+        <li
+          *ngFor="let starship of starships"
+          (click)="goToDetails(starship)"
+          style="cursor: pointer"
+        >
+          <div>
+            <strong>{{ starship.name }}</strong> -
+            <p>{{ starship.model }}</p>
+          </div>
           <img
             *ngIf="starship.image"
             [src]="starship.image"
@@ -16,8 +24,10 @@
           />
         </li>
       </ul>
+
       <div *ngIf="loading" class="loading-indicator">
-        <p>Cargando más naves...</p> <!-- Mensaje de carga para nuevas naves -->
+        <p>Cargando más naves...</p>
+        <!-- Mensaje de carga para nuevas naves -->
       </div>
     </div>
 
@@ -27,4 +37,4 @@
   </ng-template>
 </div>
 
-<div id="scrollAnchor" style="height: 1px;"></div>
+<div id="scrollAnchor" style="height: 1px"></div>

@@ -16,3 +16,52 @@ img[src] {
   margin: 20px 0; /* Espaciado alrededor del indicador */
   font-weight: bold; /* Resaltar el texto */
 }
+
+/*******************************************************************************************/
+
+ul {
+  list-style-type: none;
+  padding: 5;
+  margin: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+li {
+  background-color: #333;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #b9b9b9;
+  box-shadow: 0 2px 5px #00000033;
+  width: 800px;
+  height: 60px;
+}
+
+li strong {
+  font-size: 1.2em;
+  color:  #b9b9b9; /* Color blanco para el nombre */
+}
+
+li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+li p {
+  margin: 1;
+  font-size: 1em;
+  color: #ccc; 
+}
+
+.loading-indicator {
+  color: white;
+  text-align: center;
+}

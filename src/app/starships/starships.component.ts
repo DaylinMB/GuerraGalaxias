@@ -2,13 +2,14 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { inject } from '@angular/core';
 import { StarshipService } from '../starship.service';
 import { Starship } from '../models/interfaces';
-import { HttpClient } from '@angular/common/http'; // Asegúrate de importar HttpClientModule. Esto sale tachado
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-starships',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './starships.component.html',
   styleUrls: ['./starships.component.css'],
 })
@@ -17,12 +18,13 @@ export class StarshipsComponent implements OnInit {
   nextPage: number = 1;
   loading: boolean = false;
 
-  private http: HttpClient = inject(HttpClient); // Usando inject para HttpClient
-  private nextUrl: string | null = 'https://swapi.dev/api/starships'; // Definición de nextUrl
+  private http: HttpClient = inject(HttpClient);
+  private nextUrl: string | null = 'https://swapi.dev/api/starships';
 
   constructor(
     private starshipService: StarshipService,
-    private el: ElementRef
+    private el: ElementRef,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,9 +53,20 @@ export class StarshipsComponent implements OnInit {
     });
   }
 
+  goToDetails(starship: Starship) {
+    console.log('Nave seleccionada:', starship);
+    const id = this.extractIdFromUrl(starship.url);
+    this.router.navigate(['/starship-details', id]);
+  }
+
+  extractIdFromUrl(url: string): string {
+    const parts = url.split('/');
+    return parts[parts.length - 2];
+  }
+
   setupIntersectionObserver(): void {
     const options = {
-      root: null, // el viewport
+      root: null,
       threshold: 0.1, // ejecutarse cuando el 10% del elemento sea visible
     };
 
@@ -69,8 +82,8 @@ export class StarshipsComponent implements OnInit {
     observer.observe(target);
   }
 
-  onImageError(event: Event): void {
-    const imgElement = event.target as HTMLImageElement;
-    imgElement.src = '/default-image.jpg'; // Cambia esto a la ruta correcta de tu imagen por defecto
-  }
+   onImageError(event: Event): void {
+     const imgElement = event.target as HTMLImageElement;
+     imgElement.src = '/default-image.jpg';
+   }
 }

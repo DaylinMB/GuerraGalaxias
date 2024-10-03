@@ -1,0 +1,33 @@
+<div class="starship-details-container d-flex align-items-center">
+  <!-- Columna para la imagen de la nave -->
+  <div class="starship-image me-3">
+    <img 
+      [src]="starship.image"
+      alt="{{ starship.name }}"
+      (error)="onImageError($event)"
+      class="img-fluid">
+  </div>
+
+  <!-- Columna para los detalles de la nave -->
+  <div class="starship-info flex-grow-1 text-light">
+    <!-- Nombre y texto de relleno -->
+    <div class="lorem-text mb-4">
+      <h2 class="fw-bold">{{ starship.name }}</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum voluptatem repellat vero! Sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <!-- Contenedor para los detalles en dos columnas -->
+    <div class="details-columns">
+      <div class="info-column">
+        <p><strong>Model:</strong> {{ starship.model }}</p>
+        <p><strong>Cost in credits:</strong> {{ starship.cost_in_credits }}</p>
+        <p><strong>Atmospheric Speed:</strong> {{ starship.max_atmosphering_speed }}</p>
+      </div>
+      <div class="info-column">
+        <p><strong>Manufacturer:</strong> {{ starship.manufacturer }}</p>
+        <p><strong>Length:</strong> {{ starship.length }}</p>
+        <p><strong>Crew:</strong> {{ starship.passengers }}</p>
+      </div>
+    </div>
+  </div>
+</div>

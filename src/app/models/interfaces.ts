@@ -1,5 +1,6 @@
 // models.interfaces.ts
 export interface Starship {
+  id: string;  // Asegúrate de que el ID esté aquí
   name: string;
   model: string;
   url: string;
@@ -14,4 +15,6 @@ export interface StarshipDetails extends Starship {
   cargo_capacity?: string;
   passengers?: string;
   starship_class?: string;
+  image?: string;
+  url: string;
 }
