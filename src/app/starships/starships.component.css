@@ -1,0 +1,18 @@
+.loading-indicator {
+  text-align: center;
+  margin: 20px 0;
+}
+
+img {
+  visibility: hidden; /* Oculta la imagen hasta que esté completamente cargada */
+}
+
+img[src] {
+  visibility: visible; /* Muestra la imagen solo si tiene una fuente válida */
+}
+
+.loading-indicator {
+  text-align: center;
+  margin: 20px 0; /* Espaciado alrededor del indicador */
+  font-weight: bold; /* Resaltar el texto */
+}
