@@ -1,40 +1,39 @@
-<div>
-  <div *ngIf="loading; else starshipList">
+<div class="container">
+  <div *ngIf="loading; else starshipList" class="text-center my-3">
     <p>Cargando naves...</p>
-    <!-- Mensaje de carga -->
   </div>
 
   <ng-template #starshipList>
     <div *ngIf="starships.length > 0; else noStarships">
-      <ul>
+      <ul class="list-group">
         <li
           *ngFor="let starship of starships"
           (click)="goToDetails(starship)"
+          class="list-group-item d-flex justify-content-between align-items-center"
           style="cursor: pointer"
         >
           <div>
-            <strong>{{ starship.name }}</strong> -
-            <p>{{ starship.model }}</p>
+            <strong>{{ starship.name }}</strong>
+            <p class="mb-0">{{ starship.model }}</p>
           </div>
-          <img
-            *ngIf="starship.image"
-            [src]="starship.image"
-            alt="{{ starship.name }}"
-            (error)="onImageError($event)"
-          />
         </li>
       </ul>
 
-      <div *ngIf="loading" class="loading-indicator">
+      <div *ngIf="loading" class="loading-indicator text-center my-3">
         <p>Cargando más naves...</p>
-        <!-- Mensaje de carga para nuevas naves -->
       </div>
     </div>
 
     <ng-template #noStarships>
-      <p>No se encontraron naves.</p>
+      <p class="text-center">No se encontraron naves.</p>
     </ng-template>
   </ng-template>
-</div>
 
-<div id="scrollAnchor" style="height: 1px"></div>
+  <div class="text-center my-3">
+    <button type="button" *ngIf="starships.length >= 36 && !loading" class="btn btn-primary" (click)="loadStarships()">
+      View More
+    </button>
+  </div>
+
+  <div id="scrollAnchor" style="height: 1px;"></div>
+</div>

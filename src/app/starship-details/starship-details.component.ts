@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { inject } from '@angular/core';
-import { StarshipService } from '../starship.service'; 
+import { StarshipService } from '../services/starship.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { StarshipDetails } from '../models/interfaces';
@@ -20,7 +20,7 @@ export class StarshipDetailsComponent implements OnInit {
   private http: HttpClient = inject(HttpClient);
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private starshipService: StarshipService
   ) {}
 
@@ -36,12 +36,12 @@ export class StarshipDetailsComponent implements OnInit {
       next: (data) => {
         this.starship = data;
         console.log('Detalles de la nave:', this.starship); // Verificar aquí
-        this.starship.image = this.getStarshipImage(id);  // Asignar imagen
-        this.loading = false; 
+        this.starship.image = this.getStarshipImage(id); // Asignar imagen
+        this.loading = false;
       },
       error: (error) => {
         console.error('Error al cargar los detalles de la nave:', error);
-        this.loading = false; 
+        this.loading = false;
       },
     });
   }

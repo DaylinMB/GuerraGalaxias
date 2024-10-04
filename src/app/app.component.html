@@ -1,17 +1,15 @@
 <nav>
-  <a href="/" (click)="switchView('home')" style="cursor: pointer">Home</a>
-  <a href="/starships" (click)="switchView('starships')" style="cursor: pointer"
-    >Starships</a
-  >
+  <a href="/login" (click)="switchView('login')" style="cursor: pointer">Login</a>
+  <a href="/register" (click)="switchView('register')" style="cursor: pointer">Register</a>
 </nav>
-<!-- Uso de *ngIf en lugar de *If -->
-<!-- <div *ngIf="currentView === 'home'">
-  <h1>Bienvenido a la página principal</h1>
-  <p>Aquí puedes encontrar información general.</p>
-</div> -->
+<nav>
+  <a href="/" (click)="switchView('home')" style="cursor: pointer">Home</a>
+  <a href="/starships" (click)="switchView('starships')" style="cursor: pointer">Starships</a>
+</nav>
 
-<!-- <div *ngIf="currentView === 'starships'">
-  <app-starships></app-starships>
-</div> -->
+<app-alert></app-alert>
 
 <router-outlet></router-outlet>
+
+
+

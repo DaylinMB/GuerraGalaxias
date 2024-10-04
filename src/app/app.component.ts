@@ -1,22 +1,36 @@
 import { Component } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StarshipsComponent } from "./starships/starships.component";
-import { RouterOutlet } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AlertComponent } from './_helpers/alert.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,StarshipsComponent , RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, StarshipsComponent, HomeComponent, ReactiveFormsModule, AlertComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  currentView = 'home'; // Vista inicial
+  constructor(private router: Router) {}
 
   switchView(view: string) {
-    this.currentView = view;
+    switch (view) {
+      case 'login':
+        this.router.navigate(['/login']);
+        break;
+      case 'register':
+        this.router.navigate(['/register']);
+        break;
+      case 'home':
+        this.router.navigate(['/']);
+        break;
+      case 'starships':
+        this.router.navigate(['/starships']);
+        break;
+    }
   }
-
-  someCondition = true;
 }
