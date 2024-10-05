@@ -1,0 +1,21 @@
+<div class="title-container text-left">
+    <hr class="line" />
+    <h2>Films</h2>
+    <hr class="line" />
+  </div>
+  
+  <div class="container mt-4"> 
+    <div class="row justify-content-center">
+      <div class="col-md-3 mb-4" *ngFor="let film of films">
+        <div class="card text-white bg-dark" style="height: 400px; width: 250px;">
+          <img [src]="getFilmImage(film.url)" class="card-img-top" alt="{{ film.title }}" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ film.title }}</h5>
+            <p class="card-text">Release Date: {{ film.release_date }}</p>
+            <p class="card-text">Director: {{ film.director }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

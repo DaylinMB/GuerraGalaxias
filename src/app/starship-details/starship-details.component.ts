@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { StarshipDetails } from '../models/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { PilotsComponent } from '@app/pilots/pilots.component';
+import { FilmsComponent } from '@app/films/films.component';
 
 @Component({
   selector: 'app-starship-details',
   standalone: true,
-  imports: [CommonModule, PilotsComponent ],
+  imports: [CommonModule, PilotsComponent, FilmsComponent ],
   templateUrl: './starship-details.component.html',
   styleUrls: ['./starship-details.component.css'],
 })

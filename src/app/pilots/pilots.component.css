@@ -35,20 +35,26 @@
 
 .title-container {
   display: flex;
-  align-items: center;
-  margin: 20px 0; 
+  flex-direction: column;
+  align-items: flex-start; /* Alinea el texto a la izquierda */
+  width: 90%; /* Limita el ancho del contenedor al 70% de la página */
+  margin: 20px auto; /* Centra el contenedor horizontalmente */
+}
+
+.line-wrapper {
+  width: 100%; /* Hace que la línea abarque el 100% del contenedor */
 }
 
 .line {
-  border: 0; 
-  height: 2px; 
-  background-color: white;
-  flex-grow: 1;
-  margin: 0 10px; 
+  width: 90%; /* Ajusta el ancho de la línea para que no llegue a los bordes */
+  height: 2px; /* Grosor de la línea */
+  background-color: white; /* Color de la línea */
+  margin: 10px 0; /* Espacio vertical entre el título y las líneas */
 }
 
 .title {
-  font-weight: bold; 
-  color: white; 
-  margin: 0; 
+  font-weight: bold; /* Texto en negrita */
+  color: white; /* Color del texto */
+  margin: 0; /* Elimina el margen predeterminado */
+  padding-left: 10px; /* Da un poco de espacio entre el borde izquierdo y el texto */
 }
