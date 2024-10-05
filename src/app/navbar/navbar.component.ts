@@ -8,10 +8,9 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'] // Cambiado a 'styleUrls'
+  styleUrls: ['./navbar.component.css'], // Cambiado a 'styleUrls'
 })
 export class NavbarComponent {
-
   constructor(public router: Router, private authService: AuthService) {}
 
   logout(): void {
@@ -23,18 +22,17 @@ export class NavbarComponent {
     console.log(`Navigating to ${route}`);
     this.router.navigate([`/${route}`]);
   }
-  
-  
 
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn(); // Usamos el servicio de autenticación para verificar si está loggeado
   }
 
   onStarshipsClick() {
-    if (!this.isLoggedIn()) {
-      this.router.navigate(['/login']); // Redirige al login si no está autenticado
+    if (!localStorage.getItem('token')) {
+        this.router.navigate(['/login']);
     } else {
-      this.router.navigate(['/starships']); // Navega a la página de starships si está autenticado
+        this.router.navigate(['/starships']);
     }
-  }
+}
+
 }

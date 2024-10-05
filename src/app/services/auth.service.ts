@@ -73,7 +73,8 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token'); // Verifica si hay un token en localStorage
+    const token = localStorage.getItem('token');
+    return !!token; // Devuelve true si el token existe
   }
 
   logout(): void {

@@ -49,14 +49,17 @@ onSubmit() {
     this.authService.onLogin(this.form.value).subscribe({
         next: (response: any) => {
             console.log('Login successful!', response);
-            // Redirigir a la página de inicio
-            this.router.navigate(['/home']); // Asegúrate de que la ruta esté configurada correctamente
+            // Save the token in localStorage
+            localStorage.setItem('token', response.accessToken);
+            // Redirect to home
+            this.router.navigate(['/home']);
         },
         error: (error: any) => {
-            this.error = 'Login failed. Please try again.'; // Muestra un mensaje de error
+            this.error = 'Login failed. Please try again.';
             this.loading = false;
         },
     });
+    
 }
 
 

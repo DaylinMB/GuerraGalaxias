@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'starships', component: StarshipsComponent,  canActivate: [AuthGuard]},
+  { path: 'starships', component: StarshipsComponent, canActivate: [AuthGuard] },
   { path: 'starship-details/:id', component: StarshipDetailsComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', redirectTo: '/login' }

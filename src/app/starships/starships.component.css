@@ -1,3 +1,11 @@
+:host {
+  display: block;
+  background-color: #181611; /* Fondo negro */
+  color: #fff; /* Color de texto blanco para contraste */
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  padding: 20px; /* Espaciado interno */
+}
+
 .loading-indicator {
   text-align: center;
   margin: 20px 0;
@@ -25,6 +33,7 @@ ul {
 
 li {
   background-color: #333;
+  border-color: #333;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 6px;
