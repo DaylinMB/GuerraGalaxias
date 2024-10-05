@@ -7,12 +7,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './_helpers/alert.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, StarshipsComponent, HomeComponent, ReactiveFormsModule, AlertComponent, LoginComponent, RegisterComponent],
+  imports: [RouterOutlet, CommonModule, StarshipsComponent, HomeComponent, ReactiveFormsModule, AlertComponent, LoginComponent, RegisterComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

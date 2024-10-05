@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/services/auth.service';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // Agrega ReactiveFormsModule aquí
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -35,30 +35,36 @@ export class LoginComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSubmit() {
+onSubmit() {
     this.submitted = true;
 
     this.error = '';
 
     if (this.form.invalid) {
-      return;
+        return;
     }
 
     this.loading = true;
 
-    // Cambia login() por onLogin()
     this.authService.onLogin(this.form.value).subscribe({
-      next: (response: any) => {
-        console.log('Login successful!', response);
-        // this.router.navigate(['/']); 
-      },
-      error: (error: any) => {
-        this.error = error;
-        this.loading = false;
-      },
+        next: (response: any) => {
+            console.log('Login successful!', response);
+            // Redirigir a la página de inicio
+            this.router.navigate(['/home']); // Asegúrate de que la ruta esté configurada correctamente
+        },
+        error: (error: any) => {
+            this.error = 'Login failed. Please try again.'; // Muestra un mensaje de error
+            this.loading = false;
+        },
     });
-  }
 }
+
+
+  
+
+
+}
+
 
 
 

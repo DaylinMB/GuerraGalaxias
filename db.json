@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "olivier@gmail.com",
-      "password": "bestPassw0rd",
-      "firstName": "Olivier",
-      "lastName": "Monge"
+      "email": "daylinmejia24@gmail.com",
+      "password": "$2a$10$h1blsOdgDr0f4qko5yz/GePnaMKd/jc8xeMXUlYki/e95S/nMX2By",
+      "firstName": "Daylin",
+      "lastName": "Mejia",
+      "username": "daylinm",
+      "id": 1
     }
-  ],
-  "posts": []
+  ]
 }

@@ -1,0 +1,22 @@
+<!-- <nav>
+    <a (click)="navigateTo('home')" style="cursor: pointer">Home</a>
+    <a (click)="navigateTo('starships')" style="cursor: pointer">Starships</a>
+    <a (click)="navigateTo('login')" style="cursor: pointer" *ngIf="!isLoggedIn()">Login</a>
+    <a (click)="navigateTo('register')" style="cursor: pointer" *ngIf="!isLoggedIn()">Register</a>
+    <a (click)="logout()" style="cursor: pointer" *ngIf="isLoggedIn()">Logout</a>
+  </nav>
+   -->
+
+<nav>
+  <a (click)="navigateTo('home')" style="cursor: pointer">Home</a>
+  <a (click)="onStarshipsClick()" style="cursor: pointer">Starships</a>
+
+  <ng-container *ngIf="!isLoggedIn()">
+    <a (click)="navigateTo('login')" style="cursor: pointer">Login</a>
+    <a (click)="navigateTo('register')" style="cursor: pointer">Register</a>
+  </ng-container>
+
+  <ng-container *ngIf="isLoggedIn()">
+    <a (click)="logout()" style="cursor: pointer">Logout</a>
+  </ng-container>
+</nav>

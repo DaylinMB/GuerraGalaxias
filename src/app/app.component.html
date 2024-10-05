@@ -1,14 +1,5 @@
-<nav>
-  <a href="/login" (click)="switchView('login')" style="cursor: pointer">Login</a>
-  <a href="/register" (click)="switchView('register')" style="cursor: pointer">Register</a>
-</nav>
-<nav>
-  <a href="/" (click)="switchView('home')" style="cursor: pointer">Home</a>
-  <a href="/starships" (click)="switchView('starships')" style="cursor: pointer">Starships</a>
-</nav>
-
+<app-navbar></app-navbar>
 <app-alert></app-alert>
-
 <router-outlet></router-outlet>
 
 

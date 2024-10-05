@@ -27,6 +27,7 @@ export class RegisterComponent {
 
   onRegister() {
     this.error = null; 
+    console.log('Usuario registrado:', this.user);
   
     this.authService.signUp(this.user).subscribe(
       (response: any) => {  
