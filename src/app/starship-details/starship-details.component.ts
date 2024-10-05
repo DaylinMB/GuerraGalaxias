@@ -5,11 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { StarshipDetails } from '../models/interfaces';
 import { ActivatedRoute } from '@angular/router';
+import { PilotsComponent } from '@app/pilots/pilots.component';
 
 @Component({
   selector: 'app-starship-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PilotsComponent ],
   templateUrl: './starship-details.component.html',
   styleUrls: ['./starship-details.component.css'],
 })

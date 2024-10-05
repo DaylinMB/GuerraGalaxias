@@ -1,13 +1,22 @@
+:host {
+  display: block;
+  background-image: url("/fondo.jpeg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
 .starship-details-container {
   display: flex;
   background-color: rgba(20, 20, 20, 0.9);
-  /* padding: 20px; */
   border-radius: 10px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
   max-width: 1250px;
   max-height: 1000px;
   margin: 20px auto;
-  font-family: "Arial", sans-serif; 
+  font-family: "Arial", sans-serif;
 }
 
 .lorem-text {

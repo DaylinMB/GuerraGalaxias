@@ -1,0 +1,23 @@
+<div class="title-container">
+  <hr class="line" />
+  <h2 class="title">Pilots</h2>
+  <hr class="line" />
+</div>
+
+<div class="container mt-4"> 
+
+
+  
+  <div class="row justify-content-center">
+    <div class="col-md-3 mb-4" *ngFor="let pilot of pilots">
+      <div class="card text-white bg-dark" style="height: 400px; width: 250px;">
+        <img [src]="getPilotImage(pilot.url)" class="card-img-top" alt="{{ pilot.name }}" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ pilot.name }}</h5>
+          <p class="card-text">Gender: {{ pilot.gender }}</p>
+          <p class="card-text">Birth Year: {{ pilot.birth_year }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
