@@ -1,7 +1,9 @@
 :host {
   display: block;
-  background-color: #000; /* Fondo negro */
-  color: #fff; /* Color de texto blanco para contraste */
-  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
-  padding: 20px; /* Espaciado interno */
+  background-image: url('/fondo.jpg'); /* Cambia esto a la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
 }
