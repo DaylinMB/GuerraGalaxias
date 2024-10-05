@@ -1,23 +1,12 @@
 {
-  
-  " usuarios " : [
-
-  ] ,
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "email": "olivier@gmail.com",
+      "password": "bestPassw0rd",
+      "firstName": "Olivier",
+      "lastName": "Monge"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "posts": []
 }

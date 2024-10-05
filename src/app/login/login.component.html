@@ -1,67 +1,40 @@
-<article class="modal">
-  <article class="login">
-    <mat-icon class="close-icon" (click)="onClose()">close</mat-icon>
-    <h2>Enter your credentials</h2>
-    <p>You can use your email and password to login</p>
-    <form action="" class="login__form" [formGroup]="loginForm" (submit)="onSubmit($event)">
-      <!-- @if(authService.isErrorOnLogin()){
-      <p class="errorMessage">Email or password is incorrect</p>
-      } -->
-      @if(authService.errorMessage() || authService.isErrorOnLogin()){
-      <p class="errorMessage">{{authService.errorMessage()}}</p>
-      }
-      <input class="login__input " [ngClass]="{'login__input--isError': authService.isErrorOnLogin()}" type="text"
-        placeholder="Email" name="email" id="email" formControlName="email" autocomplete="email" />
-      <input class="login__input " [ngClass]="{'login__input--isError': authService.isErrorOnLogin()}" type="password"
-        placeholder="Password" formControlName="password" autocomplete="current-password" />
-      <button type="submit">Login</button>
-    </form>
-    <div class="square"></div>
-    <footer>
-      <p class="title">Star Wars is part of The Walt Disney Family of Companies.</p>
-      <p class="description">MyDisney lets you seamlessly log in to services and experiences across The Walt Disney
-        Family of Companies,
-        such as Disney+, ESPN, Walt Disney World, and more.</p>
-    </footer>
-  </article>
-</article>
+<div class="container col-md-4 offset-md-4 mt-5 hero-form">
+  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  <div class="card">
+      <h4 class="card-header text-center">¿Welcome! <br>The Dark Side is waiting</h4>
+      <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                  <label class="form-label">Email address</label>
+                  <input type="email" formControlName="username" class="form-control" placeholder="i.e. john@example.com" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Email address is required</div>
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">Password</label>
+                  <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </div>
+              </div>
+              <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Remember me</label>
+              </div>
+              
+              <div class="d-flex justify-content-center">
+                <button [disabled]="loading" class="btn btn-primary me-2">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    Log in
+                </button>
+              </div>
 
-
-
-
-
-
-<!-- 
-
-<article class="modal">
-  <article class="login">
-    <mat-icon class="close-icon" (click)="onClose()">close</mat-icon>
-    <h2>Enter your credentials</h2>
-    <p>You can use your email and password to login</p>
-    <form class="login__form" [formGroup]="form" (submit)="onSubmit($event)">
-    
-      <p class="errorMessage" *ngIf="authService.errorMessage() || authService.isErrorOnLogin()">
-        {{authService.errorMessage()}}
-      </p>
-      <input class="login__input" 
-             [ngClass]="{'login__input--isError': authService.isErrorOnLogin()}" 
-             type="text" 
-             placeholder="Email" 
-             formControlName="email" 
-             autocomplete="email" />
-      <input class="login__input" 
-             [ngClass]="{'login__input--isError': authService.isErrorOnLogin()}" 
-             type="password" 
-             placeholder="Password" 
-             formControlName="password" 
-             autocomplete="current-password" />
-      <button type="submit">Login</button>
-    </form>
-    <div class="square"></div>
-    <footer>
-      <p class="title">Star Wars is part of The Walt Disney Family of Companies.</p>
-      <p class="description">MyDisney lets you seamlessly log in to services and experiences across The Walt Disney
-        Family of Companies, such as Disney+, ESPN, Walt Disney World, and more.</p>
-    </footer>
-  </article>
-</article> -->
+              <div class="register text-center mt-3">
+                <p>Don't have an account? <a href="/register" class="btn btn-link">Create account</a></p>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

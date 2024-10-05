@@ -5,12 +5,14 @@ import { StarshipsComponent } from "./starships/starships.component";
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './_helpers/alert.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, StarshipsComponent, HomeComponent, ReactiveFormsModule, AlertComponent],
+  imports: [RouterOutlet, CommonModule, StarshipsComponent, HomeComponent, ReactiveFormsModule, AlertComponent, LoginComponent, RegisterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

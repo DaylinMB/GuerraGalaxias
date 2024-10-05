@@ -1,35 +1,26 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
-
-//   constructor() { }
-// }
-
-
-
-import { Inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, inject, signal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { InterSignup } from '@app/models/user.interface';  
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  http = inject(HttpClient);
+  
+  private apiUrl = 'http://localhost:4200';
 
-http = Inject(HttpClient);
-  public isLogged = signal(false);
+  // Propiedades para el estado de autenticación
+  public isLogged = signal<boolean>(false);
   public isErrorOnLogin = signal<boolean>(false);
   public isLoggingIn: boolean = false;
-  public isRegistering: boolean = false;
   public errorMessage = signal<string>('');
 
   constructor() {}
 
-  onRegister(data: { firstName: string; lastName: string; username: string; password: string }): Observable<any> {
-    return this.http.post('http://localhost:4200/users', data).pipe(
+  signUp(user: InterSignup): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/users`, user).pipe(
       tap({
         next: () => this.isLogged.set(true),
         error: (err) => this.errorMessage.set(err.error),
@@ -38,7 +29,7 @@ http = Inject(HttpClient);
   }
 
   onLogin(data: { email: string; password: string }): Observable<any> {
-    return this.http.post('http://localhost:4200/login', data).pipe(
+    return this.http.post<any>(`${this.apiUrl}/login`, data).pipe(
       tap({
         next: () => this.isLogged.set(true),
         error: (err) => {
@@ -48,7 +39,6 @@ http = Inject(HttpClient);
       })
     );
   }
-  
 
   isLoggedIn(): boolean {
     return this.isLogged();
@@ -56,5 +46,6 @@ http = Inject(HttpClient);
 
   onLogout(): void {
     this.isLogged.set(false);
+    localStorage.removeItem('token');
   }
 }

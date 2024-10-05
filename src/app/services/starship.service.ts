@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Starship, StarshipDetails } from '../models/interfaces';
-import { StarshipDetailsComponent } from '../starship-details/starship-details.component';
+// import { StarshipDetailsComponent } from '../starship-details/starship-details.component';
 
 @Injectable({
   providedIn: 'root',
