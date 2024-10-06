@@ -8,6 +8,7 @@
   padding: 20px;
 }
 
+/***** CARDS *****/
 .starship-details-container {
   display: flex;
   background-color: rgba(20, 20, 20, 0.9);
@@ -77,31 +78,28 @@
   color: #aaaaaa;
 }
 
-
-
-/******************************************************/
+/***** TITTLE TEXT *****/
 .title-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinea el texto a la izquierda */
-  width: 90%; /* Limita el ancho del contenedor al 70% de la página */
-  margin: 20px auto; /* Centra el contenedor horizontalmente */
+  align-items: flex-start;
+  width: 90%;
+  margin: 20px auto;
 }
 
 .line-wrapper {
-  width: 100%; /* Hace que la línea abarque el 100% del contenedor */
+  width: 100%;
 }
 
 .line {
-  width: 90%; /* Ajusta el ancho de la línea para que no llegue a los bordes */
-  height: 2px; /* Grosor de la línea */
-  background-color: white; /* Color de la línea */
-  margin: 10px 0; /* Espacio vertical entre el título y las líneas */
+  width: 90%;
+  height: 2px;
+  background-color: white;
+  margin: 10px 0;
 }
 
 .title {
-  font-weight: bold; /* Texto en negrita */
-  color: white; /* Color del texto */
-  margin: 0; /* Elimina el margen predeterminado */
-  padding-left: 10px; /* Da un poco de espacio entre el borde izquierdo y el texto */
+  font-weight: bold;
+  margin: 0;
+  padding-left: 10px;
 }

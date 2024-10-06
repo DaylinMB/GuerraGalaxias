@@ -8,14 +8,14 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'], // Cambiado a 'styleUrls'
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
   constructor(public router: Router, private authService: AuthService) {}
 
   logout(): void {
-    this.authService.logout(); // Llamamos al servicio de autenticación para hacer logout
-    this.router.navigate(['/login']); // Redirige al login después de cerrar sesión
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   navigateTo(route: string) {
@@ -24,15 +24,14 @@ export class NavbarComponent {
   }
 
   isLoggedIn(): boolean {
-    return this.authService.isLoggedIn(); // Usamos el servicio de autenticación para verificar si está loggeado
+    return this.authService.isLoggedIn();
   }
 
   onStarshipsClick() {
     if (!localStorage.getItem('token')) {
-        this.router.navigate(['/login']);
+      this.router.navigate(['/login']);
     } else {
-        this.router.navigate(['/starships']);
+      this.router.navigate(['/starships']);
     }
-}
-
+  }
 }

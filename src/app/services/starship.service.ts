@@ -28,7 +28,7 @@ export class StarshipService {
           return {
             results: response.results.map((starship) => {
               starship.image = this.getImageUrl(starship.url, 'starship');
-              console.log(`Starship Image URL: ${starship.image}`); // Verifica aquí
+              console.log(`Starship Image URL: ${starship.image}`);
               return starship;
             }),
             next: response.next,

@@ -1,51 +1,53 @@
 <nav class="navbar navbar-expand-lg top-nav text-white">
-    <div class="container-fluid justify-content-center">
-        <div class="logo text-center mx-auto"> <!-- Asegura que el logo esté centrado -->
-            <img src="default-image.jpg" alt="Logo" class="img">
-        </div>
+  <div class="container-fluid justify-content-center">
+    <div class="logo text-center mx-auto">
+      <img src="default-image.jpg" alt="Logo" class="img" />
     </div>
-    
-  
-    <div class="right-section ms-auto">
-      <ng-container *ngIf="!isLoggedIn()">
+  </div>
 
-        <div class="center-section">
-
-            <a (click)="navigateTo('login')" class="nav-link" style="cursor: pointer">Login</a>
-    
-            <a (click)="navigateTo('register')" class="nav-link" style="cursor: pointer">Register</a>
-        </div>
-
-
-      </ng-container>
-  
-      <ng-container *ngIf="isLoggedIn()">
-        <a (click)="logout()" class="nav-link text-white" style="cursor: pointer">Logout</a>
-      </ng-container>
-    </div>
-</nav>
-
-
-
-
-
-  
-<nav class="navbar2 navbar-expand-lg bottom-nav ">
-
-    <div class="container-fluid justify-content-center">
-
+  <div class="right-section ms-auto">
+    <ng-container *ngIf="!isLoggedIn()">
       <div class="center-section">
-        <a (click)="navigateTo('home')" class="nav-link text-white" style="cursor: pointer">Home</a>
+        <a
+          (click)="navigateTo('login')"
+          class="nav-link"
+          style="cursor: pointer"
+          >Login</a
+        >
 
-        <a (click)="onStarshipsClick()" class="nav-link text-white" style="cursor: pointer">Starships</a>
+        <a
+          (click)="navigateTo('register')"
+          class="nav-link"
+          style="cursor: pointer"
+          >Register</a
+        >
       </div>
+    </ng-container>
 
-    </div>
+    <ng-container *ngIf="isLoggedIn()">
+      <a (click)="logout()" class="nav-link text-white" style="cursor: pointer"
+        >Logout</a
+      >
+    </ng-container>
+  </div>
 </nav>
 
+<nav class="navbar2 navbar-expand-lg bottom-nav">
+  <div class="container-fluid justify-content-center">
+    <div class="center-section">
+      <a
+        (click)="navigateTo('home')"
+        class="nav-link text-white"
+        style="cursor: pointer"
+        >Home</a
+      >
 
-  
-
-
-
-
+      <a
+        (click)="onStarshipsClick()"
+        class="nav-link text-white"
+        style="cursor: pointer"
+        >Starships</a
+      >
+    </div>
+  </div>
+</nav>

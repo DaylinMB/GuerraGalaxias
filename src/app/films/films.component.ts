@@ -3,12 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
-// Define la interfaz para las películas
 interface Film {
   title: string;
   director: string;
   release_date: string;
-  url: string; // URL de la película
+  url: string;
 }
 
 @Component({
@@ -19,9 +18,9 @@ interface Film {
   styleUrls: ['./films.component.css']
 })
 export class FilmsComponent implements OnInit {
-  @Input() starshipUrl!: string; // URL de la nave que se pasa como input
+  @Input() starshipUrl!: string;
 
-  films: Film[] = []; // Arreglo para almacenar las películas
+  films: Film[] = [];
 
   private readonly API_BASE_URL = 'https://swapi.dev/api/';
   private readonly IMG_FILMS_BASE_URL = 'https://starwars-visualguide.com/assets/img/films/';
@@ -29,33 +28,33 @@ export class FilmsComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.fetchFilms(); // Llamada para obtener películas al inicializar el componente
+    this.fetchFilms(); 
   }
 
   fetchFilms(): void {
     this.http.get<{ films: string[] }>(this.starshipUrl).subscribe(starship => {
-      if (starship.films && starship.films.length > 0) { // Verifica si hay films
+      if (starship.films && starship.films.length > 0) { 
         const filmRequests = starship.films.map((filmUrl: string) =>
-          this.http.get<Film>(filmUrl) // Obtiene cada film
+          this.http.get<Film>(filmUrl) 
         );
 
-        // Maneja las solicitudes de films con forkJoin
+        
         forkJoin(filmRequests).subscribe({
           next: (films) => {
-            this.films = films as Film[]; // Asigna las películas
+            this.films = films as Film[];
           },
           error: (error) => {
-            console.error('Error fetching films:', error); // Manejo de errores
+            console.error('Error fetching films:', error); 
           }
         });
       } else {
-        this.films = []; // Si no hay films, asigna un arreglo vacío
+        this.films = []; 
       }
     });
   }
 
   getFilmImage(url: string): string {
-    const id = url.split('/')[5]; // Obtiene el ID del film desde la URL
-    return `${this.IMG_FILMS_BASE_URL}${id}.jpg`; // Devuelve la URL de la imagen del film
+    const id = url.split('/')[5]; 
+    return `${this.IMG_FILMS_BASE_URL}${id}.jpg`; 
   }
 }

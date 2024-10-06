@@ -1,10 +1,44 @@
-# GuerraGalaxias
+# INTRODUCTION
+Welcome to the Guerra Galaxias project, a website dedicated to fans of the Star Wars saga. Here you can find information about characters, starships, and films.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+# Features
+- User registration and authentication.
+- Navigation between different sections: Home and Starships.
+- Attractive and responsive interface.
+
+# Technologies Used
+- Frontend: Angular 18, HTML, CSS
+- Backend: Node.js, Express, JSON Server
+- Database: JSON as a simulated database for user management.
+
+## Installing
+
+1.  Clone the repo
+
+    ```git clone: https://github.com/DaylinMB/GuerraGalaxias```
+
+2.  Install dependencies
+
+```sh
+npm install
+```
+
+## Development server for frontend
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Development server for backend
+
+Run `pnpm run backend` or `npx json-server-auth backend/db.json` for a backend server.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+# GuerraGalaxias
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+
 
 ## Code scaffolding
 

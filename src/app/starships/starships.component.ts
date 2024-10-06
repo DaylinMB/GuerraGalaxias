@@ -1,4 +1,10 @@
-import { Component, OnInit, ElementRef, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ChangeDetectorRef,
+  OnDestroy,
+} from '@angular/core';
 import { inject } from '@angular/core';
 import { StarshipService } from '../services/starship.service';
 import { Starship } from '../models/interfaces';
@@ -35,7 +41,7 @@ export class StarshipsComponent implements OnInit, OnDestroy {
   }
 
   loadStarships(): void {
-    if (this.loading || !this.hasMorePages) return; 
+    if (this.loading || !this.hasMorePages) return;
 
     this.previousScrollPosition = window.pageYOffset;
 
@@ -46,19 +52,17 @@ export class StarshipsComponent implements OnInit, OnDestroy {
     this.starshipService.getStarships(url).subscribe({
       next: (response) => {
         if (response.results && response.results.length) {
-          this.starships = [...this.starships, ...response.results]; 
+          this.starships = [...this.starships, ...response.results];
           this.nextPage++;
         }
 
-        // Verificar si hay más páginas por cargar
         if (!response.next) {
-          this.hasMorePages = false; // No hay más páginas, detener futuras cargas
+          this.hasMorePages = false;
         }
 
         this.loading = false;
         this.cdr.detectChanges();
 
-        // Restaurar la posición del scroll después de agregar nuevas naves
         window.scrollTo(0, this.previousScrollPosition);
       },
       error: (error) => {
@@ -100,43 +104,7 @@ export class StarshipsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.observer) {
-      this.observer.disconnect(); // Desconectar el observer al destruir el componente
+      this.observer.disconnect();
     }
   }
 }
-
-// loadStarships(): void {
-//   if (this.loading || !this.starshipService.starshipsUrl) return; // Evitar cargar si ya se está cargando o no hay más páginas
-
-//   // Guardar la posición del scroll antes de cargar más naves
-//   this.previousScrollPosition = window.pageYOffset;
-
-//   this.loading = true;
-
-//   const url = `${this.starshipService.starshipsUrl}?page=${this.nextPage}`;
-
-//   this.starshipService.getStarships(url).subscribe({
-//     next: (response) => {
-//       if (response.results && response.results.length) {
-//         this.starships = [...this.starships, ...response.results]; // Concatenar resultados
-//         this.nextPage++;
-//       }
-
-//       // Verificar si hay más páginas por cargar
-//       if (!response.next) {
-//         // Si `next` es null, no hay más páginas
-//         this.starshipService.starshipsUrl = null; // Detener futuras cargas
-//       }
-
-//       this.loading = false;
-//       this.cdr.detectChanges();
-
-//       // Restaurar la posición del scroll después de agregar nuevas naves
-//       window.scrollTo(0, this.previousScrollPosition);
-//     },
-//     error: (error) => {
-//       console.error('Error al cargar las naves:', error);
-//       this.loading = false;
-//     },
-//   });
-// }

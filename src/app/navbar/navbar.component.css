@@ -1,49 +1,50 @@
 .img {
-    width: 40%;
-    align-items: center;
+  width: 40%;
+  align-items: center;
 }
-
 
 .container-fluid {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
+a.nav-link {
+    font-size: 1.6rem;
+}
 nav.navbar {
-    background-color:#000000; ;
-    padding: 40px;
+  background-color: #000000;
+  padding: 40px;
 }
 
 .navbar .nav-link {
-    padding: 1px 5px; 
-    margin: 0;
+  padding: 1px 5px;
+  margin: 0;
 }
-
 
 .bottom-nav {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   padding: 10px 0;
   background-color: #444;
 }
 
 .bottom-nav a {
-    border-color: aliceblue;
-    background-color: #000000;
-    margin: 0 20px;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
+  border-color: aliceblue;
+  background-color: #000000;
+  margin: 0 20px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 
-.navbar2{
-    background-color: #000000;
-}
+
 .bottom-nav {
-    border-top: 1px solid #9d9d9d;
-    border-bottom: 1px solid #9d9d9d;
-    background-color: black;
+  border-top: 1px solid #9d9d9d;
+  border-bottom: 1px solid #9d9d9d;
+  background-color: black;
+}
+
+.navbar2 {
+  background-color: #000000;
 }
 
 .center-section {
@@ -51,6 +52,6 @@ nav.navbar {
 }
 
 img {
-  width: 50px; 
+  width: 50px;
   height: auto;
 }

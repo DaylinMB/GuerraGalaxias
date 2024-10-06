@@ -1,30 +1,30 @@
 :host {
   display: block;
-  background-color: #181611; /* Fondo negro */
-  color: #fff; /* Color de texto blanco para contraste */
-  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
-  padding: 20px; /* Espaciado interno */
+  background-color: #181611;
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .card {
-  background-color: #121212; /* Color de fondo oscuro */
-  border: none; /* Sin borde */
+  background-color: #000000;
+  border: none;
   padding: 25px;
 }
 
 .card-header {
-  color: #ffffff; /* Texto blanco para el encabezado */
-  font-size: 1.5rem; /* Tamaño de fuente del encabezado */
+  color: #ffffff;
+  font-size: 1.5rem;
   padding-top: 15px;
 }
 
 .form-control {
-  border: 1px solid #658492; /* Borde del campo de entrada */
-  border-radius: 6px; /* Bordes redondeados */
+  border: 1px solid #658492;
+  border-radius: 6px;
 }
 
 .form-check-label {
-  color: #ffffff; /* Texto blanco para la etiqueta de "Recordarme" */
+  color: #ffffff;
 }
 
 .form-check-input:focus {
@@ -43,19 +43,19 @@
 }
 
 .btn-primary {
-  width: 70%; /* Ancho completo */
-  padding: 10px; /* Espaciado interno */
-  border-radius: 6px; /* Bordes redondeados */
-  background-color: #fa6544; /* Color del botón */
+  width: 70%;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #fa6544;
   border-color: #fa6544;
-  color: #ffffff; /* Texto blanco */
+  color: #ffffff;
 }
 
 .btn-link {
-  text-decoration: none; /* Eliminar subrayado */
-  color: #f1502c; /* Color del texto */
+  text-decoration: none;
+  color: #f1502c;
 }
 
 .btn-link:hover {
-  text-decoration: underline; /* Subrayado al pasar el ratón */
+  text-decoration: underline;
 }

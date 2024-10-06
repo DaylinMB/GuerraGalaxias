@@ -37,8 +37,8 @@ export class StarshipDetailsComponent implements OnInit {
     this.starshipService.getStarshipById(id).subscribe({
       next: (data) => {
         this.starship = data;
-        console.log('Detalles de la nave:', this.starship); // Verificar aquí
-        this.starship.image = this.getStarshipImage(id); // Asignar imagen
+        console.log('Detalles de la nave:', this.starship);
+        this.starship.image = this.getStarshipImage(id); 
         this.loading = false;
       },
       error: (error) => {
