@@ -12,7 +12,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ RouterOutlet, CommonModule, StarshipsComponent, HomeComponent, ReactiveFormsModule, AlertComponent, LoginComponent, RegisterComponent, NavbarComponent ],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    StarshipsComponent,
+    HomeComponent,
+    ReactiveFormsModule,
+    AlertComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -32,6 +42,12 @@ export class AppComponent {
         break;
       case 'starships':
         this.router.navigate(['/starships']);
+        break;
+      case 'pilots':
+        this.router.navigate(['/pilots']);
+        break;
+      case 'films':
+        this.router.navigate(['/films']);
         break;
     }
   }
