@@ -1,42 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { InterSignup } from '@app/models/user.interface';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {
-  user: InterSignup = {
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    password: '',
-  };
-  error: string | null = null;
+export class RegisterComponent implements OnInit {
+  form!: FormGroup;
+  submitted = false;
+  error?: string;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      email: [
+        '', 
+        [Validators.required, Validators.email]
+      ],
+      password: [
+        '', 
+        [Validators.required, Validators.minLength(7)]
+      ],
+    });
+  }
+
+  get f() {
+    return this.form.controls;
+  }
 
   onRegister() {
-    this.error = null;
-    console.log('Usuario registrado:', this.user);
+    this.submitted = true;
+    this.error = '';
 
-    this.authService.signUp(this.user).subscribe(
-      (response: any) => {
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.authService.signUp(this.form.value).subscribe({
+      next: (response: any) => {
         console.log('Registration successful!', response);
         this.router.navigate(['/login']);
       },
-      (error: any) => {
+      error: (error: any) => {
         console.error('Registration error:', error);
         this.error = 'Registration failed. Please try again.';
-      }
-    );
+      },
+    });
   }
 }
