@@ -30,10 +30,15 @@
   </ng-template>
 
   <div class="text-center my-3">
-    <button type="button" *ngIf="starships.length >= 36 && !loading" class="btn btn-primary" (click)="loadStarships()">
+    <button
+      type="button"
+      *ngIf="starships.length >= 10 && !loading"
+      class="btn btn-primary"
+      (click)="loadStarships()"
+    >
       View More
     </button>
   </div>
 
-  <div id="scrollAnchor" style="height: 1px;"></div>
+  <!-- <div id="scrollAnchor" style="height: 1px;"></div> -->
 </div>
