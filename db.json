@@ -9,10 +9,10 @@
   },
   {
     "id": 2,
-    "username": "t1",
-    "password": "$2b$10$h69kinD34vhBvjN0gAQpjeEh86ocWrhj0MH2MsUD208wzXBfBiypS",
-    "email": "t1",
-    "firstName": "t",
+    "username": "numero1",
+    "password": "$2b$10$yJqwmsZ/x01MlvB.rL8H8OjOTPbAC.I/KgyLFh2GDpubGbF8W7XBy",
+    "email": "numero1@gmail.com",
+    "firstName": "numero",
     "lastName": "1"
   }
 ]
