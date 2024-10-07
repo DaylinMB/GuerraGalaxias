@@ -29,11 +29,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Development server for backend
 
-Run `pnpm run backend` or `npx json-server-auth backend/db.json` for a backend server.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `node server.js` for a backend server.
 
 # GuerraGalaxias
 
