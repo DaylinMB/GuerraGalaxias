@@ -9,10 +9,18 @@
   },
   {
     "id": 2,
-    "username": "numero1",
-    "password": "$2b$10$yJqwmsZ/x01MlvB.rL8H8OjOTPbAC.I/KgyLFh2GDpubGbF8W7XBy",
-    "email": "numero1@gmail.com",
+    "username": "numero2",
+    "password": "$2b$10$zP2EAgTxH4AoMd2mTfXViuhAnG.MHvX6jGH8BktCs2U/is3j7FoMG",
+    "email": "numero2@gmail.com",
     "firstName": "numero",
-    "lastName": "1"
+    "lastName": "2"
+  },
+  {
+    "id": 3,
+    "username": "numero3",
+    "password": "$2b$10$O/d.8DafDzR3vzOoEf0itOrtKnU41m7Izjh6DWiMuRKYCQ8ju2wba",
+    "email": "numero3@gmail.com",
+    "firstName": "numero",
+    "lastName": "3"
   }
 ]
